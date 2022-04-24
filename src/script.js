@@ -27,6 +27,7 @@ function displayInfo(response) {
   let country = response.data.sys.country;
   let dateTime = document.querySelector("#date-time");
   let description = document.querySelector("#description");
+  let icon = document.querySelector("#icon");
   dateTime.innerHTML = formatDate(response.data.dt * 1000);
   document.querySelector("#temperature").innerHTML =
     Math.round(celsiusTemperature);
@@ -36,6 +37,11 @@ function displayInfo(response) {
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
   );
+  icon.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  icon.setAttribute("alt", response.data.weather[0].description);
 }
 
 function defaultInfo() {
