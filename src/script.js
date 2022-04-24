@@ -1,7 +1,41 @@
+function formatDate(timestamp) {
+  let now = new Date(timestamp);
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[now.getDay()];
+  let hour = now.getHours();
+  if (hour < 10) {
+    hour = `0${hour}`;
+  }
+  let minutes = now.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  return `${day} ${hour}:${minutes}`;
+}
+
 function displayInfo(response) {
   let celsiusTemperature = response.data.main.temp;
+  let city = response.data.name;
+  let country = response.data.sys.country;
+  let dateTime = document.querySelector("#date-time");
+  let description = document.querySelector("#description");
+  dateTime.innerHTML = formatDate(response.data.dt * 1000);
   document.querySelector("#temperature").innerHTML =
     Math.round(celsiusTemperature);
+  document.querySelector("#city-display").innerHTML = `${city}, ${country}`;
+  description.innerHTML = response.data.weather[0].description;
+  document.querySelector("#humidity").innerHTML = response.data.main.humidity;
+  document.querySelector("#wind").innerHTML = Math.round(
+    response.data.wind.speed
+  );
 }
 
 function defaultInfo() {
@@ -12,4 +46,5 @@ function defaultInfo() {
   let apiUrl = `${apiEndpoint}?q=${city}&appid=${apiKey}&units=${unit}`;
   axios.get(apiUrl).then(displayInfo);
 }
+
 defaultInfo();
