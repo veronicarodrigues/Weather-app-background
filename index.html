@@ -13,6 +13,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="src/style.css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <title>WeatherApp Backgrounds</title>
   </head>
   <body>
@@ -57,7 +58,7 @@
               src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
               alt="weather-icon"
               class="icon"
-            /><span class="temperature">8</span>
+            /><span class="temperature" id="temperature"></span>
             <span class="units">°C | °F</span>
           </div>
           <div class="col-6">
