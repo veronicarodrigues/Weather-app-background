@@ -1,3 +1,50 @@
+body {
+  font-family: "Arimo", sans-serif;
+}
 .weather-app {
   border: 1px solid black;
+  padding: 15px;
+  margin: 20px auto;
+  max-width: 600px;
+  border-radius: 10px;
+}
+.search-form {
+  margin-bottom: 20px;
+}
+.search-button {
+  box-shadow: rgb(37, 39, 89 / 8%) 0px 8px 8px 0;
+}
+.current-button {
+  box-shadow: rgb(37, 39, 89 / 8%) 0px 8px 8px 0;
+}
+h1 {
+  font-size: 24px;
+  font-weight: 150px;
+  line-height: 28px;
+  margin: 0;
+}
+ul {
+  padding: 0;
+  margin: 0 0 10px;
+}
+li {
+  font-size: 16px;
+  font-weight: 150px;
+  height: 19px;
+  line-height: 1;
+  list-style: none;
+}
+.icon {
+  height: 64px;
+  width: 64px;
+  vertical-align: top;
+}
+.temperature {
+  font-size: 48px;
+  font-weight: 400px;
+  line-height: 60px;
+}
+.units {
+  position: relative;
+  top: -25px;
 }
