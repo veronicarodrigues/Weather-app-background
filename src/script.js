@@ -54,3 +54,21 @@ function defaultInfo() {
 }
 
 defaultInfo();
+
+function search(event) {
+  event.preventDefault();
+  let apiKey = "23a42024d4ea98a857d3b3b4b4f71a2a";
+  let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather";
+  let unit = "metric";
+  let cityInput = document.querySelector("#search-city-input");
+  let cityClean = cityInput.value.trim();
+  let apiUrl = `${apiEndpoint}?q=${cityClean}&appid=${apiKey}&units=${unit}`;
+  if (cityClean.length > 0) {
+    axios.get(apiUrl).then(displayInfo);
+  } else {
+    alert(`Please type a city`);
+  }
+}
+
+let searchForm = document.querySelector(".search-form");
+searchForm.addEventListener("submit", search);
